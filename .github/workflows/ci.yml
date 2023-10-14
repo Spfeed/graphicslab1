@@ -11,8 +11,8 @@ jobs:
         uses: actions/checkout@v3
 #      - name: Setting up Python
 #        uses: actions/setup-python@v2
-      - name: Install deps
-        run: python -m pip install --upgrade pip
+#      - name: Install deps
+#        run: python -m pip install --upgrade pip
   test:
 
     needs: build
