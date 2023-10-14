@@ -29,4 +29,5 @@ jobs:
 #        uses: actions/setup-python@v2
 
       - name: Run tests
-        run: python tests/Test1.py
+        run: |
+            python tests/Test1.py
