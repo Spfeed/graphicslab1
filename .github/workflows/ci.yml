@@ -5,7 +5,7 @@ run-name: ${{ github.actor }} nadelal polny unitaz koda 🚀
 on:  push
 jobs:
   build:
-    runs-on: self-latest
+    runs-on: self-hosted
     steps:
       - name: Check out code in repository
         uses: actions/checkout@v3
