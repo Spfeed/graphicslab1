@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-from unittest.mock import MagicMock
+
 
 # Получаем путь к текущему каталогу скрипта
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -9,8 +9,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir, '..'))
 
 import unittest
-import tkinter as tk
-from main import increase_radius, decrease_radius, draw_circle, R
+from main import increase_radius, decrease_radius
 
 class TestCircleFunctions(unittest.TestCase):
 
