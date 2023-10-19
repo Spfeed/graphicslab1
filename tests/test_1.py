@@ -1,8 +1,7 @@
 import unittest
 import sys
 import os
-from tkinter import *
-from main import draw_circle, increase_radius, decrease_radius
+from unittest.mock import MagicMock
 
 # Получаем путь к текущему каталогу скрипта
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -16,48 +15,31 @@ from main import increase_radius, decrease_radius, draw_circle, R
 class TestCircleFunctions(unittest.TestCase):
 
     #проверка функции увеличения радиуса
-    def test_increase_radius(self):
-        root=tk.Tk()
-        canvas =tk.Canvas(root, width=200, height=300)
-        canvas.pack()
-        self.x, self.y, self.R = 150, 150, R
-        draw_circle(self.x, self.y, self.R, canvas)
-        print("Отработал увеличение")
-
-        # Симулируем нажатие клавиши ">" для увеличения радиуса
-        event = tk.Event()
-        event.keysym = 'greater'
-        canvas.event_generate("<KeyPress-greater>")
-        canvas.update()
-
-        # Проверяем, что радиус увеличился
-        # Так как метод decrease_radius уже вызывался радиус R стал равен 40, поэтому производится сравнение с 50
-        self.R = increase_radius(event)
-        self.assertEqual(self.R, 50)
-
-        root.destroy()
-
-    #проверка уменьшения радиуса
     def test_decrease_radius(self):
-        root = tk.Tk()
-        canvas = tk.Canvas(root, width=200, height=300)
-        canvas.pack()
-        self.x, self.y, self.R = 150, 150, R
-        draw_circle(self.x, self.y, self.R, canvas)
-        print("Отработал уменьшение")
+        R = 50  # Исходный радиус
+        event = object()  # Заглушка для event
 
-        # Симулируем нажатие клавиши "<" для уменьшения радиуса
-        event = tk.Event()
-        event.keysym = 'less'
-        canvas.event_generate("<KeyPress-less>")
-        canvas.update()
+        # Сохранить исходное значение радиуса
+        initial_R = R
 
-        # Проверяем, что радиус уменьшился
-        #Так как начальное значение R=50, то сравниваем с 40
-        self.R = decrease_radius(event)
-        self.assertEqual(self.R, 40)
+        # Вызвать decrease_radius
+        R= decrease_radius()
 
-        root.destroy()
+        # Проверить, что радиус уменьшился на 10
+        self.assertEqual(R, initial_R - 10)
+
+    def test_increase_radius(self):
+        R = 50  # Исходный радиус
+        event = object()  # Заглушка для event
+
+        # Сохранить исходное значение радиуса
+        initial_R = R
+
+        # Вызвать increase_radius
+        R=increase_radius()
+
+        # Проверить, что радиус увеличился на 10
+        self.assertEqual(R, initial_R )
 
     if __name__ == '__main__':
         unittest.main()

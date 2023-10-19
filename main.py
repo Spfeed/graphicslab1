@@ -12,28 +12,27 @@ canvas.pack()
 # Установка значений: x - координата центра окружности по оси абсцисс, y - по оси ординат, R - радиус окружности.
 x, y, R = 150, 150, 50
 
-def increase_radius(event):
+def increase_radius():
     """
     Данная функция увеличивает радиус окружности на 10 пикселей.
+    """
+    global R
+    R += 10  # Увеличиваем радиус на 10
+    return R
 
+def increase_rad_draw(event):
+    """
     Аргументы: event - событие, по происхождению которого функция начинает работу, в данной ситуации - нажатие на клавишу
 
     Визуальное увеличиение радиуса производится при помощи удаления старой окружности с меньшим радиусом и отрисовки новой.
     """
-    global R
-    R += 10  # Увеличиваем радиус на 10
+    increase_radius()
     canvas.delete("circle")
     draw_circle(x,y,R,canvas)
-    return R
 
-
-def decrease_radius(event):
+def decrease_radius():
     """
      Данная функция увеличивает радиус окружности на 10 пикселей.
-
-    Аргументы: event - событие, по происхождению которого функция начинает работу, в данной ситуации - нажатие на клавишу
-
-    Визуальное уменьшение радиуса производится при помощи удаления старой окружности с большим радиусом и отрисовки новой.
 
     Присутствует ограничение: минимальный радиус, после достижения которого окружность не уменьшается.
 
@@ -41,9 +40,18 @@ def decrease_radius(event):
     global R
     if R > 10:  # Уменьшаем радиус, но не меньше 10
         R-=10
-        canvas.delete("circle")
-        draw_circle(x,y,R,canvas)
     return R
+
+
+def decrease_rad_draw(event):
+    """
+    Аргументы: event - событие, по происхождению которого функция начинает работу, в данной ситуации - нажатие на клавишу
+
+    Визуальное уменьшение радиуса производится при помощи удаления старой окружности с большим радиусом и отрисовки новой.
+    """
+    decrease_radius()
+    canvas.delete("circle")
+    draw_circle(x,y,R,canvas)
 
 def draw_circle(x,y,R,canvas):
     """
@@ -63,9 +71,9 @@ def draw_circle(x,y,R,canvas):
 #События increase_radius и decrease_radius являются вручную написанными функциями.
 def on_key(event):
     if event.keysym == 'greater':
-        increase_radius(event)
+        increase_rad_draw(event)
     elif event.keysym == 'less':
-        decrease_radius(event)
+        decrease_rad_draw(event)
     elif event.keysym == 'Escape':
         root.quit()
 
