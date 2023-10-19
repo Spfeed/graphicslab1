@@ -9,7 +9,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir, '..'))
 
 import unittest
-from main import increase_radius, decrease_radius
+from main_logic import increase_radius, decrease_radius
 
 class TestCircleFunctions(unittest.TestCase):
 
