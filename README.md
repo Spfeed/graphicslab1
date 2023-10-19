@@ -1,4 +1,4 @@
-[![Build, Test](https://github.com/Spfeed/graphicslab1/actions/workflows/ci.yml/badge.svg)](https://github.com/Spfeed/graphicslab1/actions/workflows/ci.yml)  [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/Spfeed/graphicslab1/blob/master/LICENSE)  [![GitHub release](https://img.shields.io/github/release/Spfeed/graphicslab1)]
+[![Build, Test](https://github.com/Spfeed/graphicslab1/actions/workflows/ci.yml/badge.svg)](https://github.com/Spfeed/graphicslab1/actions/workflows/ci.yml)  [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/Spfeed/graphicslab1/blob/master/LICENSE)
 
 # Приложение для управления радиусом окружности
 
